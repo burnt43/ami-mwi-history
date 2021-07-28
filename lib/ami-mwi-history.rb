@@ -18,6 +18,7 @@ module AmiMwiHistory
       StringIO.new.tap do |s|
         %i[
           event_name_for_ami_mwi_history
+          mailbox_name_for_ami_mwi_history
           waiting_for_ami_mwi_history
           new_for_ami_mwi_history
           old_for_ami_mwi_history

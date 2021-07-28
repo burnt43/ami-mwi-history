@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'ami-mwi-history'
-  s.version     = '0.0.2'
+  s.version     = '0.0.3'
   s.summary     = ''
   s.description = ''
   s.authors     = ['James Carson']
