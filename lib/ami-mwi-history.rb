@@ -1,4 +1,5 @@
 require 'set'
+require 'stringio'
 
 module AmiMwiHistory
   module AmiMessage
@@ -9,6 +10,21 @@ module AmiMwiHistory
 
     def process_for_ami_mwi_history?
       EVENT_NAMES_TO_PROCESS.member?(event_name_for_ami_mwi_history)
+    end
+
+    def debug_for_ami_mwi_history
+      return unless process_for_ami_mwi_history?
+
+      StringIO.new.tap do |s|
+        %i[
+          event_name_for_ami_mwi_history
+          waiting_for_ami_mwi_history
+          new_for_ami_mwi_history
+          old_for_ami_mwi_history
+        ].each do |method_name|
+          s.printf("%-30s: %s\n", method_name, send(method_name))
+        end
+      end.string
     end
 
     def event_name_for_ami_mwi_history
